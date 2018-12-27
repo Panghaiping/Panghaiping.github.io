@@ -8,6 +8,7 @@ sampFreq, snd = wavfile.read('11111.wav')
 snd.dtype
 snd = snd / (2.**15)
 s1 = snd[:, 0]
+snd.shape
 timeArray = arange(0, 378880.0, 1)   #[0s, 1s], 5060个点
 timeArray = timeArray / sampFreq   #[0s, 0.114s]
 timeArray = timeArray * 1000       #[0ms, 114ms]
