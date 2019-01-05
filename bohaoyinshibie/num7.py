@@ -6,7 +6,10 @@ snd = wavfile.read('dtmf-7.wav')
 f=wave.open(r"dtmf-7.wav","rb")
 params=f.getparams()
 nchannels,samplewidth,framerate,nframes=params[:4]
+print(nframes)
+
 str_data=f.readframes(nframes)
+
 f.close()
 wave_data=np.fromstring(str_data,dtype=np.short)
 wave_data.shape=-1,1

@@ -2,8 +2,8 @@ import numpy as np
 import wave
 from matplotlib import pyplot as plt
 from scipy.io import wavfile
-snd = wavfile.read('dtmf-1.wav')
-f=wave.open(r"dtmf-1.wav","rb")
+snd = wavfile.read('D:\github\Panghaiping.github.io\sound - 副本.wav')
+f=wave.open(r"D:\github\Panghaiping.github.io\sound - 副本.wav","rb")
 params=f.getparams()
 nchannels,samplewidth,framerate,nframes=params[:4]
 str_data=f.readframes(nframes)
@@ -20,7 +20,7 @@ plt.subplot(211)
 plt.plot(time,wave_data[0],'r-')
 plt.xlabel('Time/s')
 plt.ylabel('Ampltitude')
-plt.title('Num '+'1'+' time/ampltitude')
+plt.title('Num '+'0'+' time/ampltitude')
 plt.show()
 
 df=framerate/(nframes-1)
@@ -37,5 +37,5 @@ plt.subplot(212)
 plt.plot(freq,transformed,'b-')
 plt.xlabel('Freq/Hz')
 plt.ylabel('Ampltitude')
-plt.title('Num '+'1'+' freq/ampltitude')
+plt.title('Num '+'0'+' freq/ampltitude')
 plt.show()
