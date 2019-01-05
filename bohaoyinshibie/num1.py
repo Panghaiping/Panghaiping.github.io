@@ -34,6 +34,7 @@ transformed=transformed[:d]
 for i,data in enumerate(transformed):
     transformed[i]=abs(data)
 plt.subplot(212)
+
 plt.plot(freq,transformed,'b-')
 plt.xlabel('Freq/Hz')
 plt.ylabel('Ampltitude')
