@@ -7,13 +7,13 @@ from pydub.utils import make_chunks
 import tkinter as tk
  
 #以500ms为单位切割sound.wav音频
-myaudio = AudioSegment.from_file("sound.wav" , "wav") 
+myaudio = AudioSegment.from_file("sound11.wav" , "wav") 
 chunk_length_ms = 500 # 分块的毫秒数
 chunks = make_chunks(myaudio, chunk_length_ms) #将文件切割成1秒每块
 
 #保存切割的音频到文件
 for i, chunk in enumerate(chunks):
-    chunk_name = "chunk{0}.wav".format(i)
+    chunk_name = "chunka{0}.wav".format(i)
     print ("exporting", chunk_name)
     chunk.export(chunk_name, format="wav")
 
@@ -52,11 +52,11 @@ for a in range(0,11):
     time=np.arange(0,nframes)*(1.0/framerate)
     #通过取样点数和取样频率计算出每个取样的时间
 
-    plt.subplot(2,1,1)
-    plt.plot(time,wave_data[0],'r-')
-    plt.xlabel('Time/s')
-    plt.ylabel('Ampltitude')
-    plt.title('Num '+str(a+1)+' time/ampltitude')
+    #plt.subplot(2,1,1)
+    #plt.plot(time,wave_data[0],'r-')
+    #plt.xlabel('Time/s')
+    #plt.ylabel('Ampltitude')
+    #plt.title('Num '+str(a+1)+' time/ampltitude')
     #plt.show()
 
     #傅里叶变换，时域图转化为频域图
@@ -64,19 +64,19 @@ for a in range(0,11):
     freq=[df*n for n in range(0,nframes)]
     transformed=np.fft.fft(wave_data[0])
     d=int(len(transformed)/2)
-    while freq[d]>2000:
+    while freq[d]>4000:
         d-=10
     freq=freq[:d]
     transformed=transformed[:d]
     for i,data in enumerate(transformed):
         transformed[i]=abs(data)
 
-    plt.subplot(2,1,2)
-    plt.plot(freq,transformed,'b-')
-    plt.xlabel('Freq/Hz')
-    plt.ylabel('Ampltitude')
+    #plt.subplot(2,1,2)
+    #plt.plot(freq,transformed,'b-')
+    #plt.xlabel('Freq/Hz')
+    #plt.ylabel('Ampltitude')
     #plt.title('Num '+str(a+1)+' time/ampltitude')
-    plt.show()
+    #plt.show()
 
     #读取第一峰和第二峰的峰值
     local_max=[]
